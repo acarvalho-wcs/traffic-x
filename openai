@@ -1,0 +1,33 @@
+import openai
+
+def generate_summary(results, model="gpt-4", language="english"):
+    """
+    Generate a summary using OpenAI's GPT model based on results from TrafficAnalyzer.
+    Requires: OPENAI_API_KEY set in environment or openai.api_key set manually.
+    """
+    prompt = f"""
+    Write a concise, scientific summary of the following wildlife trafficking analysis results:
+    
+    - Chi-squared test: statistic={results.get('chi2', {}).get('chi2')}, p-value={results.get('chi2', {}).get('p')}
+    - Regression R²: {results.get('regression', {}).get('r2')}
+    - Anomalies (iForest/LOF/DBSCAN): present, see classification
+    - Network structure and shared attributes analyzed.
+
+    Focus on insights about co-occurrence of LM and GLT, trends in seizure volume, and presence of strategic or outlier cases.
+
+    Write in {language}.
+    """
+
+    try:
+        response = openai.ChatCompletion.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": "You are a scientific data analyst."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.5,
+            max_tokens=500
+        )
+        return response['choices'][0]['message']['content']
+    except Exception as e:
+        return f"[ERROR] Could not generate summary: {str(e)}"
