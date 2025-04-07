@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import re
 import streamlit as st
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from sklearn.ensemble import IsolationForest
 from sklearn.neighbors import LocalOutlierFactor
