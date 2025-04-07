@@ -1,13 +1,4 @@
-import subprocess
-import sys
-
-# Força instalação de matplotlib caso não esteja instalado
-try:
-    import matplotlib
-except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
-    import matplotlib
-
+import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
