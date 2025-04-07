@@ -9,11 +9,6 @@ Traffic-X é um aplicativo Streamlit para analisar casos de tráfico de fauna co
 - 📉 Análises estatísticas (regressão, qui-quadrado, KDE)
 - 🕸️ Exploração de redes de casos conectados
 
-## Como usar
-1. Suba este repositório no [Streamlit Cloud](https://streamlit.io/cloud)
-2. Garanta que os arquivos `trafficx_final.py` e `requirements.txt` estejam na raiz
-3. Execute o app!
-
 ## Requisitos
 - Python 3.8+
 - Streamlit
